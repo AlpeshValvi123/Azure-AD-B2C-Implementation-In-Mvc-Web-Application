@@ -1,0 +1,25 @@
+﻿@using System.Security.Claims
+
+@{
+    ViewBag.Title = "Profile Details";
+}
+
+<h2>Account Details</h2>
+<a class="btn btn-primary" href="/Account/EditProfile">Update Profile</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+
+    @foreach (Claim claim in ClaimsPrincipal.Current.Claims)
+    {
+        <tr>
+            <td>@claim.Type</td>
+            <td>@claim.Value</td>
+        </tr>
+    }
+</table>
